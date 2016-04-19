@@ -1,0 +1,14 @@
+{
+  "mongo-dev": {
+    "host": "localhost",
+    "port": 27017,
+    "database": "mongo-user",
+    "username": "admin",
+    "password": "",
+    "name": "mongo-dev-name-user",
+    "connector": "mongodb"
+  }
+}
+
+curl -X GET -H "Authorization: 6qUgHzxnIGBSbZdE7k9spPax8OiOtdnDlvxFvEdV2yjjDpYODEnXjohdZkJJiwd5" \
+http://localhost:3000/api/widgets
