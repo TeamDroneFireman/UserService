@@ -31,5 +31,9 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "SITUser": {
+    "dataSource": "db",
+    "public": true
   }
 }

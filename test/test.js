@@ -2,29 +2,29 @@
 /*
  {"email":"foo@bar.com", "password":"xxx"}
  */
-var request = require('request');
+//var request = require('request');
 var supertest = require('supertest');
 var expect = require('chai').expect;
 
+var server = supertest('http://localhost:3000/SITUsers');
+
 describe('Server health response', function () {
   it('should return 200 OK', function (done) {
-    request.get('http://localhost:3000/Users/health',
-      function (err, res, body) {
+    server.get('/health')
+      .end(function (err, res) {
         if (err) {
           throw err;
         }
         expect(res.statusCode).to.equal(200);
-        expect(body).to.equal('OK');
+        expect(res.body.status).to.equal('OK');
         done();
       });
   });
 });
 
-var server = supertest('http://localhost:3000');
-
 describe('Sign up a user', function () {
   it('should return user email and id', function (done) {
-    server.post('/Users')
+    server.post('/')
       .send({'email': 'foo@bar.com', 'password': 'xxx'})
       .end(function (err, res) {
         if (err) {
@@ -42,7 +42,7 @@ var token;
 
 describe('Log in with the user 1', function () {
   it('should return a token for user 1', function (done) {
-    server.post('/Users/login')
+    server.post('/login')
       .send({'email': 'foo@bar.com', 'password': 'xxx'})
       .end(function (err, res) {
         if (err) {
@@ -61,7 +61,7 @@ describe('Log in with the user 1', function () {
 
 describe('Get user 1', function () {
   it('should return email and id of user 1', function (done) {
-    server.get('/Users/1')
+    server.get('/1')
       .query('access_token='+token)
       .end(function (err, res) {
         if (err) {
