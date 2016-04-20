@@ -6,6 +6,7 @@
     "start": "node .",
     "start_env": "NODE_ENV=$$NODEENV node .",
     "pretest": "jshint .",
+    "test": "gulp test",
     "posttest": "nsp check"
   },
   "dependencies": {
