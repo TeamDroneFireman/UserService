@@ -19,7 +19,6 @@
   "sub": true,
   "maxlen": 80,
   "globals"   : {
-    /* MOCHA */
     "describe"   : false,
     "it"         : false,
     "before"     : false,
