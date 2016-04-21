@@ -5,7 +5,7 @@
     "database": "mongo-user",
     "username": "admin",
     "password": "",
-    "name": "mongo-dev-name-user",
+    "name": "mongo",
     "connector": "mongodb"
   }
 }
