@@ -8,8 +8,6 @@ var bgstart;
 
 gulp.task('start', bgstart = bg('node', '.'));
 
-//run('mocha --reporter mocha-jenkins-reporter > report-mocha.xml'))
-
 gulp.task('test', ['start'], function () {
   return gulp.src('./test/test.js', {read: true}).pipe(wait(1500))
     .pipe(mocha({
