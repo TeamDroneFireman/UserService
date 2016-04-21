@@ -30,7 +30,7 @@ npm run-script start_env
 
 ```
 docker build -t <container-name> .
-docker run -d --name=user-api -e NODEENV=<nom-de-l-env> -p 10000:3000 <container-name>
+docker run -d --name=user-api -e NODE_ENV=<nom-de-l-env> -p 10000:3000 <container-name>
 ```
 
 ---

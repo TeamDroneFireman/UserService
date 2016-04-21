@@ -1,11 +1,11 @@
 {
-  "mongo-dev": {
+  "db": {
     "host": "localhost",
     "port": 27017,
-    "database": "mongo-user",
+    "database": "mongo-db1",
     "username": "admin",
     "password": "",
-    "name": "mongo",
+    "name": "mongodb_dev",
     "connector": "mongodb"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "mongodb_dev": {
+  "db": {
     "host": "mongo",
     "port": 27017,
     "database": "mongo-db1",
