@@ -14,6 +14,12 @@ export NODEENV=dev
 docker run --name mongo-dev -d mongo
 ```
 
+### Run tests
+
+```
+npm testdev
+```
+
 ### Run the api
 
 ```
