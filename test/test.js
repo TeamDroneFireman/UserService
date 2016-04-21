@@ -2,7 +2,6 @@
 /*
  {"email":"foo@bar.com", "password":"xxx"}
  */
-//var request = require('request');
 var supertest = require('supertest');
 var expect = require('chai').expect;
 
