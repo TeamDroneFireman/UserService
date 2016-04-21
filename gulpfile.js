@@ -13,11 +13,11 @@ gulp.task('start', bgstart = bg('node', '.'));
 gulp.task('test', ['start'], function () {
   return gulp.src('./test/test.js', {read: true}).pipe(wait(1500))
     .pipe(mocha({
-            "reporter": "mocha-jenkins-reporter",
-            "reporterOptions": {
-                "junit_report_name": "Tests",
-                "junit_report_path": "report.xml",
-                "junit_report_stack": 1
+            'reporter': 'mocha-jenkins-reporter',
+            'reporterOptions': {
+                'junit_report_name': 'Tests',
+                'junit_report_path': 'report.xml',
+                'junit_report_stack': 1
             }
         }))
     .once('end', function () {
