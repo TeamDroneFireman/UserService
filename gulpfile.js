@@ -10,7 +10,7 @@ gulp.task('start', bgstart = bg('node', '.'));
 
 gulp.task('test', ['start'], function () {
   return gulp.src('./test/test.js', {read: true}).pipe(wait(1500))
-    .pipe(run('mocha --reporter xunit > report-mocha.xml'))
+    .pipe(run('mocha --reporter mocha-jenkins-reporter > report-mocha.xml'))
     .once('end', function () {
       bgstart.setCallback(function () { process.exit(0); });
       bgstart.stop(0);
