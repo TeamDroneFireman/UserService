@@ -9,6 +9,3 @@
     "connector": "mongodb"
   }
 }
-
-curl -X GET -H "Authorization: 6qUgHzxnIGBSbZdE7k9spPax8OiOtdnDlvxFvEdV2yjjDpYODEnXjohdZkJJiwd5" \
-http://localhost:3000/api/widgets
