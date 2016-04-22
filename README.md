@@ -2,10 +2,10 @@
 
 User authentication (and credentials)
 
-### Set the environment
+### Set the environment (optional)
 
 ```
-export NODEENV=dev
+export NODE_ENV=DEV
 ```
 
 ### Start the database (optional)
@@ -30,7 +30,7 @@ npm run-script start_env
 
 ```
 docker build -t <container-name> .
-docker run -d --name=user-api -e NODE_ENV=<nom-de-l-env> -p 10000:3000 <container-name>
+docker run -d --name=user-service --link mongo-db1:<mongo-instance> -e NODE_ENV=<env-name> -p <port>:3000 <container-name>
 ```
 
 ---

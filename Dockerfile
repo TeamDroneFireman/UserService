@@ -13,4 +13,4 @@ EXPOSE 3000
 # then in npm use this : process.env.NODE_ENV if necessary
 # use this in jenkins deploy
 # if [ -f README.md ]; then echo elllo; else echo oiike; fi
-ENTRYPOINT [ "npm", "run-script", "start_env" ]
+ENTRYPOINT [ "node", "." ]
