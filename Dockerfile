@@ -10,7 +10,4 @@ ADD . /app
 RUN npm install
 EXPOSE 3000
 # launch should be done using : -e NODE_ENV=XXX
-# then in npm use this : process.env.NODE_ENV if necessary
-# use this in jenkins deploy
-# if [ -f README.md ]; then echo elllo; else echo oiike; fi
 ENTRYPOINT [ "node", "." ]
