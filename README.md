@@ -17,7 +17,7 @@ docker run --name mongo-dev -d mongo
 ### Run tests
 
 ```
-npm testdev
+npm run-script testdev
 ```
 
 ### Run the api
