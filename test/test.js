@@ -75,21 +75,3 @@ describe('Get user 1', function () {
       });
   });
 });
-
-/*
- describe('Get user 1', function () {
- it('should return email and id of user 1', function (done) {
- server.get('/Users/1')
- .query('access_token='+token)
- .end(function (err, res) {
- if (err) {
- throw err;
- }
- expect(res.statusCode).to.equal(200);
- expect(res.body.exists).to.exist;
- expect(res.body.exists).to.equal(true);
- done();
- });
- });
- });
- */
