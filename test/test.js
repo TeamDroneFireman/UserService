@@ -21,6 +21,8 @@ describe('Server health response', function () {
   });
 });
 
+var user;
+
 describe('Sign up a user', function () {
   it('should return user email and id', function (done) {
     server.post('/')
@@ -31,7 +33,8 @@ describe('Sign up a user', function () {
         }
         expect(res.statusCode).to.equal(200);
         expect(res.body.email).to.equal('foo@bar.com');
-        expect(res.body.id).to.equal(1);
+        expect(res.body.id).to.exist;
+        user = res.body.id;
         done();
       });
   });
@@ -39,8 +42,8 @@ describe('Sign up a user', function () {
 
 var token;
 
-describe('Log in with the user 1', function () {
-  it('should return a token for user 1', function (done) {
+describe('Log in with the user', function () {
+  it('should return a token for user', function (done) {
     server.post('/login')
       .send({'email': 'foo@bar.com', 'password': 'xxx'})
       .end(function (err, res) {
@@ -52,15 +55,15 @@ describe('Log in with the user 1', function () {
         expect(res.body.created).to.exist;
         expect(res.body.id).to.exist;
         token = res.body.id;
-        expect(res.body.userId).to.equal(1);
+        expect(res.body.userId).to.equal(user);
         done();
       });
   });
 });
 
-describe('Get user 1', function () {
-  it('should return email and id of user 1', function (done) {
-    server.get('/1')
+describe('Get user', function () {
+  it('should return email and id of user', function (done) {
+    server.get('/'+user)
       .query('access_token='+token)
       .end(function (err, res) {
         if (err) {
@@ -69,8 +72,51 @@ describe('Get user 1', function () {
         expect(res.statusCode).to.equal(200);
         expect(res.body.email).to.exist;
         expect(res.body.email).to.equal('foo@bar.com');
-        expect(res.body.id).to.exist;
-        expect(res.body.id).to.equal(1);
+        expect(res.body.id).to.equal(user);
+        done();
+      });
+  });
+});
+
+describe('Check authentication of user', function () {
+  it('should return 200 code and token info', function (done) {
+    server.get('/'+user+'/accessTokens/'+token)
+      .end(function (err, res) {
+        if (err) {
+          throw err;
+        }
+        expect(res.statusCode).to.equal(200);
+        expect(res.body.userId).to.equal(1);
+        expect(res.body.id).to.equal(token);
+        done();
+      });
+  });
+});
+
+describe('Logout user', function () {
+  it('should return 204 code and no body', function (done) {
+    server.post('/logout')
+      .query('access_token='+token)
+      .end(function (err, res) {
+        if (err) {
+          throw err;
+        }
+        expect(res.statusCode).to.equal(204);
+        expect(res.body).to.equal('');
+        done();
+      });
+  });
+});
+
+describe('Check authentication of user after logout', function () {
+  it('should return 404 code and error', function (done) {
+    server.get('/'+user+'/accessTokens/'+token)
+      .end(function (err, res) {
+        if (err) {
+          throw err;
+        }
+        expect(res.statusCode).to.equal(404);
+        expect(res.body.error).to.exist;
         done();
       });
   });
