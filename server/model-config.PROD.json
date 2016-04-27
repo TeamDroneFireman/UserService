@@ -14,22 +14,22 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "mongodb_prod"
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "mongodb_prod",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "mongodb_prod",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "mongodb_prod",
     "public": false
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "mongodb_prod",
     "public": false
   },
   "SITUser": {
