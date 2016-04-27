@@ -6,11 +6,6 @@
     "username": "admin",
     "password": "",
     "name": "mongodb_prod",
-    "connector": "mongodb",
-    "server": {
-      "auto_reconnect": true,
-      "reconnectTries": 100,
-      "reconnectInterval": 1000
-    }
+    "connector": "mongodb"
   }
 }
