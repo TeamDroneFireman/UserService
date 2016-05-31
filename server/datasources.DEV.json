@@ -1,6 +1,6 @@
 {
   "mongodb_dev": {
-    "host": "localhost",
+    "host": "mongo",
     "port": 27017,
     "database": "mongo-db1",
     "username": "admin",
